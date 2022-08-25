@@ -5,11 +5,13 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
-
+body {
+    position: relative;
+}
 /* HEADER */
 header {
     color: #fff;
-    padding: 30px 50px;
+    padding: 50px 50px;
     background-color: #0B2239;
 }
 header ul li {
@@ -35,18 +37,110 @@ header li a:hover {
     align-items: center;
     justify-content: space-between;
 }
+
+/* PERFIL */
+
 .usuario {
     display: flex;
     align-items: center;
 }
+#showPerfil {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#itemPerfil{
+    position: absolute;
+    top: 30px;
+    right: -30px;
+    width: 120px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+@media (max-width:1000px) {
+    #itemPerfil {
+        top: 33px;
+    }
+}
+#itemPerfil li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 4px;
+}
+
 .usuario img, span {
+    cursor: pointer;
     margin: 0 3px;
 }
 
+/* Menu responsivo */
+#navigator-responsive {
+    display: none;
+}
+#menu-responsivo {
+    display: none;
+}
+#showMenu {
+    display: block;
+    color: #fff;
+    text-align: center;
+    border-top: 1px solid rgba(201, 201, 201, 0.404);
+    background-color: #0B2239;
+    padding-top: 3px;
+    cursor: pointer;
+
+}
+#showMenu:hover {
+    transition: .4s;
+    background-color: #0b2b4b;
+}
+.li-resp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+    background-color: #0B2239;
+    border: 1px solid rgba(212, 212, 212, 0.356);
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+}
+.li-resp:hover {
+    background-color: #0b2b4b;
+}
+#menu-responsivo a {
+    color: #e9e9e9;
+    text-decoration: none;
+}
+@media (max-width:1000px) {
+    #navigator-responsive {
+        display: block;
+    }
+    nav#menu {
+        display: none;
+    }
+}
+@media (max-width:530px) {
+    header {
+        padding: 50px 30px;
+    }
+    #perfil-name {
+        display: none;
+    }
+}
+
+.resAlunoResult {
+    font-weight: bolder;
+}
 /* CLASS TITULOS */
 
 .titulos {
-    color: rgb(77, 77, 77);
+    color: #2fa7df;
     display: inline;
     font-weight: 700;
     padding: 5px 10px 0 10px;
@@ -56,37 +150,202 @@ header li a:hover {
     width: 100%;
     transition: .4s;
 }
-.titulos:hover {
-
-    color: rgb(14, 110, 201);
+#add-cadastrar {
+    font-size: 15px;
+    color: #16c410;
+    transition: .4s;
 }
+#add-cadastrar:hover {
+    color: #0bf103;
+}
+
+
+/* CONTEUDO */
 .container {
-    padding: 40px;
+    padding: 40px 40px 20px 40px;
     border-radius: 0px 10px 10px 10px;
     border: 1px solid rgb(177, 177, 177);
 }
 
-/*Adicionar Fotos */
-
-.picture__image {
-    display: none;
+#dadosAlunosCadastrados tr {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    margin-bottom: 20px;
 }
+@media (max-width:530px) {
+    #dadosAlunosCadastrados tr {
+        padding-left:10px;
+    }
+}
+#dadosAlunosCadastrados td {
+    color: #505050;
+    width: 100%;
+    margin: 2px;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
+.dividir {
+    display: block;
+    width: 100%;
+}
+
+
+/*Adicionar Fotos */
 .picture {
     color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background-color: #cecece;
     margin-bottom: 15px;
+    cursor: pointer;
 }
+@media (max-width:530px) {
+    .container {
+        padding: 15px 20px;
+    }
+    .container-flex {
+        justify-content: center;
+    }
+    .picture {
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+}
+@media (max-width:340px) {
+    .picture {
+        margin: 0 auto;
+        width: 170px;
+        height: 170px;
+    }
+}
+#picture__input {
+    display: none;
+}
+.picture__img {
+    max-width: 100%;
+}
+.remove {
+    display: none;
+}
+
 #img-camera {
-    width: 100px;
-    opacity: .4;
-    transition: .2s;
+    width:100px; 
+    opacity:.4;
 }
-#img-camera:hover {
-    width: 110px;
+
+/* Botão cadastro */
+
+.btnCadastroContainer {
+    display: flex;
+    justify-content: end;
+}
+
+
+/* MODAL CADASTRO ALUNO */
+
+#novoCaseContainer {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(177, 177, 177, 0.933);
+    background-color: rgb(255, 255, 255);
+}
+#bgNovoCaseContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(92, 92, 92, 0.473);
+}
+#tituloCaseModal {
+    display: flex;
+    justify-content: space-between;
+}
+#tituloCaseModal {
+    color: #7a7a7a;
+}
+#closeModal {
+    color: #cecece;
+}
+#hr-titulo {
+    width: 180px;
+    margin-bottom: 20px;
     opacity: .5;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0.625rem;
+}
+.form-group label, input {
+    font-size: 14px;
+    margin: 0px 10px 0 0;
+}
+.form-group label::after {
+    content: ':';
+}
+.inputModal {
+    border: 1px solid rgba(207, 207, 207, 0.774);
+    border-radius: 7px;
+    padding: 5px;
+    width: 100%;
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#avisoModal {
+    font-size: 13px;
+}
+#botaoCadastroModal {
+    display: flex;
+    justify-content: end;
+}
+#btnCadastrarModal {
+    margin: 0px 1px;
+}
+#btnLimparModal {
+    margin: 0px 1px;
+}
+.btnModal {
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid rgb(102, 102, 102);
+
+}
+.btnModal:hover {
+    background-color: #fff;
+    transition: .4s;
+}
+#buttonManterPagina {
+    display: flex;
+    align-items: center;
+}
+#continuarCadastrando {
+    width: 10px;
+    margin-right: 0px;
+    margin-left: 13px;
+    opacity: .8;
+}
+#continuarCadastrandoLabel {
+    color: #808080;
+    margin-left: 3px;
+    font-size: 13px;
 }
