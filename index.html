@@ -5,28 +5,207 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Dashboard | Escola Travel Fontes</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Sistema Escolar | Escola Fontes</title>
+    
 </head>
 <body>
 <header>
     <div class="display-header">
-        <h1>Escola Travel Fontes</h1>
-        <ul>
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="alunos.html">Alunos</a></li>
-            <li><a href="professores.html">Professores</a></li>
-            <li><a href="materias.html">Matérias</a></li>
-        </ul>
-        <div class="usuario">
-            <img src="imagens/usuario.png" alt="Perfil" id="img-perfil">
-            <span>Perfil</span>
-            <img src="imagens/expandir.png" alt="expandir" id="expandir-perfil">
+        <h1>Escola Fontes</h1>
+        <div id="showPerfil">
+            <div class="usuario">
+                <img src="imagens/usuario.png" alt="Perfil" id="img-perfil">
+                <span id="perfil-name">Perfil</span>
+                <img src="imagens/expandir.png" alt="expandir" id="expandir-perfil">
+            </div>
+            <ul id="itemPerfil">
+                <li><a href="#">Sair</a></li>
+            </ul>
         </div>
     </div>
 </header>
+<div id="navigator-responsive">
+    <div id="showMenu">
+        <span class="material-icons" id="iconMenu">menu</span>
+    </div>
+    <nav id="menu-responsivo">
+        <ul>
+            <li class="li-resp"><a href="index.html">Sistema Escolar</a></li>
+        </ul>
+    </nav>
+</div>
 <main>
+    <div id="novoCaseContainer">
+
+        <form action="" id="cadastrarCaseModal">
+            <h2 id="tituloCaseModal">Cadastrar Aluno<span class="closeModal" id="closeModal">&times;</span></h2>
+            <hr id="hr-titulo">
+            <div class="form-group">
+                <label id="labelNomeAluno" for="cNomeAluno">Nome</label>
+                <input
+                type="text"
+                name="cNomeAluno"
+                id="cNomeAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="Nome Completo"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="labelSerieAluno" for="cSerieAluno">Série</label>
+                <input
+                type="text"
+                name="cSerieAluno"
+                id="cSerieAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="Série do aluno / ex: '3º ano C'"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="labelCelularAluno" for="cCelularAluno">Celular</label>
+                <input
+                type="text"
+                name="cCelularAluno"
+                id="cCelularAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="61 90000-0000"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="labelTelefoneAluno" for="cTelefoneAluno">Telefone</label>
+                <input
+                type="text"
+                name="cTelefoneAluno"
+                id="cTelefoneAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="61 3600-0000"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="labelMaeAluno" for="cMaeAluno">Nome da Mãe</label>
+                <input
+                type="text"
+                name="cMaeAluno"
+                id="cMaeAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="Nome da Mãe // Não consta"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="labelPaiAluno" for="cPaiAluno">Nome do Pai</label>
+                <input
+                type="text"
+                name="cPaiAluno"
+                id="cPaiAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="Nome do Pai // Não consta"
+                required
+                >
+            </div>
+            <div class="form-group">
+                <label id="labelEnderecoAluno" for="cEnderecoAluno">Endereço</label>
+                <input
+                type="text"
+                name="cEnderecoAluno"
+                id="cEnderecoAluno"
+                class="inputModal"
+                autocomplete="off"
+                placeholder="Endereço Completo"
+                required
+                >
+            </div>
+                <div id="buttonManterPagina">
+                    <input type="radio" name="continuarCadastrado" id="continuarCadastrando">
+                    <label for="continuarCadastrando" id="continuarCadastrandoLabel"><em>Continuar na página</em></label>
+                </div>
+            <div id="botaoCadastroModal">
+                <button
+                    id="btnCadastrarModal"
+                    type="submit"
+                    class="btnModal"
+                    >
+                    Cadastrar
+                </button>
+                <button
+                type="reset"
+                id="btnLimparModal"
+                class="btnModal">
+                Limpar
+                </button>
+                <button
+                    id="btnCancelarModal"
+                    class="btnModal"
+                    type="reset"
+                    >
+                    Concluído
+                </button>
+            </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div id="bgNovoCaseContainer"></div>
+    <h2 id="titulo-alunos" class="titulos">ALUNOS <span id="add-cadastrar">add+</span></h2>
+    </div>
+    <div class="container">
+
+        <div class="container-flex" id="container-alunos">
+            <h2 style="margin-bottom: 20px; color: #4b4b4b;">Painel Administrativo</h2>
+            <div class="aluno-info">
+                <table id="dadosAlunosCadastrados">
+                    <thead>
+                        <tr class="none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </main>
+<script src="javascript/script.js"></script>
 </body>
 </html>
+
+<!--<h2>Nome Completo do Aluno</h2>
+<p class="info">Série: </p>
+<p class="info">Celular: </p>
+<p class="info">Telefone: </p>
+<p class="info">Nome da Mãe: </p>
+<p class="info">Nome do Pai: </p>
+<p class="info">Endereço: </p>
+</div>-->
+
+<!-- <div class="adicionar-img">
+<label class="picture" tabindex="0">
+<input type="file" accept="image/*" id="picture__input">
+<span class="picture__img"><img src="imagens/camera.png" alt="" id="img-camera"></span>
+</label>
+</div>
+-->

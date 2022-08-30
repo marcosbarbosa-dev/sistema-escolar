@@ -8,6 +8,9 @@
 body {
     position: relative;
 }
+main {
+    padding: 40px 60px;
+}
 /* HEADER */
 header {
     color: #fff;
@@ -80,7 +83,7 @@ header li a:hover {
 
 /* Menu responsivo */
 #navigator-responsive {
-    display: none;
+    display: block;
 }
 #menu-responsivo {
     display: none;
@@ -135,7 +138,23 @@ header li a:hover {
 }
 
 .resAlunoResult {
-    font-weight: bolder;
+    width: 100%;
+    color: #808080;
+}
+.resAluno {
+    color: #a3a3a3;
+}
+.modifyResult {
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(180, 180, 180, 0.521);
+}
+.nomeClass {
+    color: #ec0000;
+    font-weight: 700;
+    font-size: 20px;
+    padding-left: 3px;
+    margin-bottom: 10px;
 }
 /* CLASS TITULOS */
 
@@ -159,7 +178,6 @@ header li a:hover {
     color: #0bf103;
 }
 
-
 /* CONTEUDO */
 .container {
     padding: 40px 40px 20px 40px;
@@ -173,11 +191,6 @@ header li a:hover {
     padding-left: 15px;
     margin-bottom: 20px;
 }
-@media (max-width:530px) {
-    #dadosAlunosCadastrados tr {
-        padding-left:10px;
-    }
-}
 #dadosAlunosCadastrados td {
     color: #505050;
     width: 100%;
@@ -189,53 +202,23 @@ header li a:hover {
     display: block;
     width: 100%;
 }
-
-
-/*Adicionar Fotos */
-.picture {
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-    background-color: #cecece;
-    margin-bottom: 15px;
-    cursor: pointer;
+#continuarCadastrando {
+    outline: 0;
 }
+
 @media (max-width:530px) {
+    main {
+        padding: 15px 15px;
+    }
     .container {
-        padding: 15px 20px;
+        padding: 15px 15px;
     }
     .container-flex {
         justify-content: center;
     }
-    .picture {
-        margin: 0 auto;
-        width: 200px;
-        height: 200px;
+    #dadosAlunosCadastrados tr {
+        padding-left: 0;
     }
-}
-@media (max-width:340px) {
-    .picture {
-        margin: 0 auto;
-        width: 170px;
-        height: 170px;
-    }
-}
-#picture__input {
-    display: none;
-}
-.picture__img {
-    max-width: 100%;
-}
-.remove {
-    display: none;
-}
-
-#img-camera {
-    width:100px; 
-    opacity:.4;
 }
 
 /* Botão cadastro */
@@ -327,6 +310,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     padding: 3px;
     border-radius: 3px;
+    outline: 0;
     border: 1px solid rgb(102, 102, 102);
 
 }

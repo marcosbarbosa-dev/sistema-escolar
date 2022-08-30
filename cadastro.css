@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0b2b4b;
+    background-image: url(imagens/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.card {
+    min-width: 270px;
+    padding: 20px;
+    border-radius: 4%;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    background-color: #fff;
+}
+@media (max-width: 340px) {
+    .card {
+        min-width: 0;
+    }
+}
+.card h1, p, a, label {
+    color: #000000
+}
+input[type="text"], input[type="password"] {
+    color: rgb(0, 0, 0);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.label-float input {
+    width: 95%;
+    min-width: 180px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    background-color: transparent;
+    display: inline-block;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+.label-float {
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.label-float input:focus {
+    border-bottom: 1px solid rgba(212, 212, 212, 0.719);
+}
+.label-float label {
+    color: rgb(0, 0, 0);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+}
+.label-float input:focus + label,
+.label-float input:valid + label{
+    color: #3a3a3a;
+    font-size: 13px;
+    margin-top: 0;
+}
+button {
+    padding: 7px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #0b2b4b;
+    border: 1px solid #00eeff73;
+    transition: .4s;
+}
+button:hover {
+    background-color: #0c3e70;
+    border: 1px solid #082847;
+    color: rgb(255, 255, 255);
+}
+.button-cadastro {
+    width: 90px;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.justify-around {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.fa-eye {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    color: rgb(41, 41, 41);
+}
