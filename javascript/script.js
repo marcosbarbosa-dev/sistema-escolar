@@ -15,12 +15,12 @@ let logado = document.querySelector('#logado')
 let avisoAdm = document.querySelector('#avisoAdm')
 let userName = document.querySelector('#userName')
 // INICIALIZAÇÃO
+if (localStorage.getItem('token') == null) {
+    window.location.href="login.html"
+}
+
 userName.innerHTML = `<em>conectado: ${userLogado.nome}.</em></span>`
 
-// SALVAR LOCAL STORAGE
-function salvar(){
-    localStorage.setItem("lista", )
-}
 
 // MENU RESPONSIVO 
 const iconShowMenu = document.querySelector('#iconMenu')
@@ -54,9 +54,6 @@ function aparecerPerfil() {
 }
 
 // SAIR DA PÁGINA
-if (localStorage.getItem('token') == null) {
-    window.location.href="login.html"
-}
 function sair() {
     localStorage.removeItem('token')
     localStorage.removeItem('userLogado')
