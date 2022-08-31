@@ -14,12 +14,32 @@ let userLogado = JSON.parse(localStorage.getItem('userLogado'))
 let logado = document.querySelector('#logado')
 let avisoAdm = document.querySelector('#avisoAdm')
 let userName = document.querySelector('#userName')
+let userView = document.querySelector('#userView')
+let admView = document.querySelector('#admView')
 // INICIALIZAÇÃO
 if (localStorage.getItem('token') == null) {
     window.location.href="login.html"
 }
 
-userName.innerHTML = `<em>conectado: ${userLogado.nome}.</em></span>`
+// FUNÇÃO ADMINISTRADOR
+
+
+if (userLogado.user == 'admin') {
+    userView.style = 'display: none'
+    admView.style = 'display: block'
+    cadastrarNovoModal.setAttribute('style', 'display: in-line')
+    avisoAdm.setAttribute('style', 'display: none')
+    avisoAdm.innerHTML = ''
+    userName.innerHTML = `<em>conectado: ${userLogado.nome}. (administrador)</em></span>`
+} else {
+    admView.style = 'display: none'
+    userView.style = 'display: block'
+    cadastrarNovoModal.setAttribute('style', 'display: none')
+    avisoAdm.setAttribute('style', 'display: block')
+    avisoAdm.innerHTML = `<em>"Faça login como administrador para acesso as informações"</em>`
+    userName.innerHTML = `<em>conectado: ${userLogado.nome}.</em></span>`
+}
+
 
 
 // MENU RESPONSIVO 
@@ -58,18 +78,6 @@ function sair() {
     localStorage.removeItem('token')
     localStorage.removeItem('userLogado')
     window.location.href="login.html"
-}
-
-// FUNÇÃO ADMINISTRADOR
-
-if (userLogado.user == 'admin') {
-    cadastrarNovoModal.setAttribute('style', 'display: in-line')
-    avisoAdm.setAttribute('style', 'display: none')
-    avisoAdm.innerHTML = ''
-} else {
-    cadastrarNovoModal.setAttribute('style', 'display: none')
-    avisoAdm.setAttribute('style', 'display: block')
-    avisoAdm.innerHTML = `<em>"Faça login como administrador para adicionar alunos"</em>`
 }
 
 
@@ -346,3 +354,4 @@ function dadosNovoAluno(){
     }
 }
 
+// INFORMAÇÕES PROFESSORES

@@ -10,6 +10,30 @@ btnVerSenhaLogin.addEventListener('click', ()=>{
     }
 })
 
+btnEntrar.addEventListener('click', ()=> {
+    let usuario = document.querySelector('#usuario')
+    let userLabel = document.querySelector('#usuarioLabel')
+    let senha = document.querySelector('#senha')
+    let senhaLabel = document.querySelector('#senhaLabel')
+    let msgError = document.querySelector('#msgError')
+
+    if (usuario.value == '' || senha.value == '') {
+        userLabel.setAttribute('style', 'color: red')
+        usuario.setAttribute('style', 'border-color: red')
+        senhaLabel.setAttribute('style', 'color: red')
+        senha.setAttribute('style', 'border-color: red')
+        
+    
+        msgError.setAttribute('style', 'display: block')
+        msgError.innerHTML = 'Usuário ou senha incorretos!'
+        msgSucess.setAttribute ('style', 'display: none')
+        msgSucess.innerHTML = ''
+    
+        usuario.focus()
+    }
+})
+
+
 function entrar() {
     let usuario = document.querySelector('#usuario')
     let userLabel = document.querySelector('#usuarioLabel')

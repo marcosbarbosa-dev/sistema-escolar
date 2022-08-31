@@ -36,151 +36,193 @@
     </nav>
 </div>
 <main>
-    <div id="novoCaseContainer">
-
-        <form action="" id="cadastrarCaseModal">
-            <h2 id="tituloCaseModal">Cadastrar Aluno<span class="closeModal" id="closeModal">&times;</span></h2>
-            <hr id="hr-titulo">
-            <div class="form-group">
-                <label id="labelNomeAluno" for="cNomeAluno">Nome:</label>
-                <input
-                type="text"
-                name="cNomeAluno"
-                id="cNomeAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="Nome Completo"
-                required
+<!--Modal-->
+<div id="novoCaseContainer">
+    <form action="" id="cadastrarCaseModal">
+        <h2 id="tituloCaseModal">Cadastrar Aluno<span class="closeModal" id="closeModal">&times;</span></h2>
+        <hr id="hr-titulo">
+        <div class="form-group">
+            <label id="labelNomeAluno" for="cNomeAluno">Nome:</label>
+            <input
+            type="text"
+            name="cNomeAluno"
+            id="cNomeAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="Nome Completo"
+            disabled
+            >
+        </div>
+        <div class="form-group">
+            <label id="labelSerieAluno" for="cSerieAluno">Série:</label>
+            <input
+            type="text"
+            name="cSerieAluno"
+            id="cSerieAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="Série do aluno / ex: '3º ano C'"
+            disabled
+            >
+        </div>
+        <div class="form-group">
+            <label id="labelCelularAluno" for="cCelularAluno">Celular:</label>
+            <input
+            type="text"
+            name="cCelularAluno"
+            id="cCelularAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="61 90000-0000"
+            disabled
+            >
+        </div>
+        <div class="form-group">
+            <label id="labelTelefoneAluno" for="cTelefoneAluno">Telefone:</label>
+            <input
+            type="text"
+            name="cTelefoneAluno"
+            id="cTelefoneAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="61 3600-0000"
+            disabled
+            >
+        </div>
+        <div class="form-group">
+            <label id="labelMaeAluno" for="cMaeAluno">Nome da Mãe:</label>
+            <input
+            type="text"
+            name="cMaeAluno"
+            id="cMaeAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="Nome da Mãe // Não consta"
+            disabled
+            >
+        </div>
+        <div class="form-group">
+            <label id="labelPaiAluno" for="cPaiAluno">Nome do Pai:</label>
+            <input
+            type="text"
+            name="cPaiAluno"
+            id="cPaiAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="Nome do Pai // Não consta"
+            disabled
+            >
+        </div>
+        <div class="form-group">
+            <label id="labelEnderecoAluno" for="cEnderecoAluno">Endereço:</label>
+            <input
+            type="text"
+            name="cEnderecoAluno"
+            id="cEnderecoAluno"
+            class="inputModal"
+            autocomplete="off"
+            placeholder="Endereço Completo"
+            disabled
+            >
+        </div>
+        <div class="aviso">
+            <p style="text-align: center; color: red;">Temporariamente indisponível!</p>
+            <span id="aviso"></span>
+        </div>
+        <div id="buttonManterPagina">
+            <input type="radio" name="continuarCadastrado" id="continuarCadastrando" disabled>
+            <label for="continuarCadastrando" id="continuarCadastrandoLabel"><em>Continuar na página</em></label>
+        </div>
+        <div id="botaoCadastroModal">
+            <button
+                id="btnCadastrarModal"
+                type="submit"
+                class="btnModal"
+                disabled
                 >
-            </div>
-            <div class="form-group">
-                <label id="labelSerieAluno" for="cSerieAluno">Série:</label>
-                <input
-                type="text"
-                name="cSerieAluno"
-                id="cSerieAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="Série do aluno / ex: '3º ano C'"
-                required
-                >
-            </div>
-            <div class="form-group">
-                <label id="labelCelularAluno" for="cCelularAluno">Celular:</label>
-                <input
-                type="text"
-                name="cCelularAluno"
-                id="cCelularAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="61 90000-0000"
-                required
-                >
-            </div>
-            <div class="form-group">
-                <label id="labelTelefoneAluno" for="cTelefoneAluno">Telefone:</label>
-                <input
-                type="text"
-                name="cTelefoneAluno"
-                id="cTelefoneAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="61 3600-0000"
-                required
-                >
-            </div>
-            <div class="form-group">
-                <label id="labelMaeAluno" for="cMaeAluno">Nome da Mãe:</label>
-                <input
-                type="text"
-                name="cMaeAluno"
-                id="cMaeAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="Nome da Mãe // Não consta"
-                required
-                >
-            </div>
-            <div class="form-group">
-                <label id="labelPaiAluno" for="cPaiAluno">Nome do Pai:</label>
-                <input
-                type="text"
-                name="cPaiAluno"
-                id="cPaiAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="Nome do Pai // Não consta"
-                required
-                >
-            </div>
-            <div class="form-group">
-                <label id="labelEnderecoAluno" for="cEnderecoAluno">Endereço:</label>
-                <input
-                type="text"
-                name="cEnderecoAluno"
-                id="cEnderecoAluno"
-                class="inputModal"
-                autocomplete="off"
-                placeholder="Endereço Completo"
-                required
-                >
-            </div>
-            <div class="aviso">
-                <span id="aviso"></span>
-            </div>
-            <div id="buttonManterPagina">
-                <input type="radio" name="continuarCadastrado" id="continuarCadastrando">
-                <label for="continuarCadastrando" id="continuarCadastrandoLabel"><em>Continuar na página</em></label>
-            </div>
-            <div id="botaoCadastroModal">
-                <button
-                    id="btnCadastrarModal"
-                    type="submit"
-                    class="btnModal"
-                    >
-                    Cadastrar
-                </button>
-                <button
+                Cadastrar
+            </button>
+            <button
+            type="reset"
+            id="btnLimparModal"
+            class="btnModal"
+            disabled>
+            Limpar
+            </button>
+            <button
+                id="btnCancelarModal"
+                class="btnModal"
                 type="reset"
-                id="btnLimparModal"
-                class="btnModal">
-                Limpar
-                </button>
-                <button
-                    id="btnCancelarModal"
-                    class="btnModal"
-                    type="reset"
-                    >
-                    Concluído
-                </button>
+                disabled
+                >
+                Concluído
+            </button>
+        </div>
+    </form>
+</div>
+<div id="bgNovoCaseContainer"></div>
+<!--Conteúdo-->
+<h2 id="titulo-alunos" class="titulos">ALUNOS <span id="add-cadastrar">add+</span></h2>
+</div>
+<div class="container">
+    <div class="container-flex" id="container-alunos">
+        <h2 style="margin-bottom: 20px; color: #4b4b4b;" id="logado">Painel Administrativo</h2>
+        <div id="userName"></div>
+        <div class="aluno-info">
+            <h2 id="infPage">Quadro de Professores</h2>
+            <hr id="infPageHr">
+            <div id="userView">
+                <table id="userViewNamesId">
+                    <thead>
+                        <tr>
+                            <td class="userViewNames">Português: Marcos Antônio Patrocínio Barbosa</td>
+                        </tr>
+                        <tr>
+                            <td class="userViewNames">Matemática: Lucas de Carvalho Santos</td>
+                        </tr>
+                        <tr>
+                            <td class="userViewNames">Biologia: Cleomar Brito Almeida</td>
+                        </tr>
+                        <tr>
+                            <td class="userViewNames">História: Estevão Souza de Santos</td>
+                        </tr>
+                    </thead>
+                </table>
             </div>
-        </form>
-    </div>
-    <div id="bgNovoCaseContainer"></div>
-    <h2 id="titulo-alunos" class="titulos">ALUNOS <span id="add-cadastrar">add+</span></h2>
-    </div>
-    <div class="container">
-        <div class="container-flex" id="container-alunos">
-            <h2 style="margin-bottom: 20px; color: #4b4b4b;" id="logado">Painel Administrativo</h2>
-            <div id="userName"></div>
-            <div class="aluno-info">
+            <div id="admView">
                 <table id="dadosAlunosCadastrados">
                     <thead>
-                        <tr class="none">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td id="tituloTd">Português: Marcos Antônio Patrocínio Barbosa</td>
+                            <td class="tdInf">Telefone: 36054637</td>
+                            <td class="tdInf">Celuar: 61 995810510</td>
+                            <td class="tdInf">Endereço: SQ 24 DLR 43 LT 31</td>
+                        </tr>
+                        <tr>
+                            <td id="tituloTd">Matemática: Lucas de Carvalho Santos</td>
+                            <td class="tdInf">Telefone: 61 32548987</td>
+                            <td class="tdInf">Celuar: 61 985428754</td>
+                            <td class="tdInf">Endereço: SQ 48 SPP 32 LT 12</td>
+                        </tr>
+                        <tr>
+                            <td id="tituloTd">Biologia: Cleomar Brito Almeida</td>
+                            <td class="tdInf">Telefone: 61 36054637</td>
+                            <td class="tdInf">Celuar: 61 995876524</td>
+                            <td class="tdInf">Endereço: SQ 32 SQNR 32 LT 21</td>
+                        </tr>
+                        <tr>
+                            <td id="tituloTd">História: Estevão Souza de Santos</td>
+                            <td class="tdInf">Telefone: 61 36054637</td>
+                            <td class="tdInf">Celuar: 61 984526748</td>
+                            <td class="tdInf">Endereço: SQ 98 CMS 22 LT A QUADRA 2</td>
                         </tr>
                     </thead>
                 </table>
             </div>
         </div>
-        <span id="avisoAdm"></span>
     </div>
+    <span id="avisoAdm"></span>
+</div>
 
 </main>
 <script src="javascript/script.js"></script>
