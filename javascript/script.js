@@ -1,3 +1,27 @@
+let cadastrarNovoModal = document.querySelector('#add-cadastrar')
+let novoCaseContainer = document.querySelector('#novoCaseContainer')
+let cadastrarCaseModel = document.querySelector('#cadastrarCaseModal')
+let closeModal = document.querySelector('#closeModal')
+let bgNovoCaseContainer = document.querySelector('#bgNovoCaseContainer')
+let avisoModal = document.querySelector('#avisoModal')
+let btnCadastrarModal = document.querySelector('#btnCadastrarModal')
+let btnLimparModal = document.querySelector('#btnLimparModal')
+let btnCancelarModal = document.querySelector('#btnCancelarModal')
+let continuarCadastrando = document.querySelector('#continuarCadastrando')
+let dividir = document.querySelector('.dividir')
+let aviso = document.querySelector('#aviso')
+let userLogado = JSON.parse(localStorage.getItem('userLogado'))
+let logado = document.querySelector('#logado')
+let avisoAdm = document.querySelector('#avisoAdm')
+let userName = document.querySelector('#userName')
+// INICIALIZAÇÃO
+userName.innerHTML = `<em>conectado: ${userLogado.nome}.</em></span>`
+
+// SALVAR LOCAL STORAGE
+function salvar(){
+    localStorage.setItem("lista", )
+}
+
 // MENU RESPONSIVO 
 const iconShowMenu = document.querySelector('#iconMenu')
 const showMenu = document.querySelector('#menu-responsivo')
@@ -29,20 +53,28 @@ function aparecerPerfil() {
     }
 }
 
+// SAIR DA PÁGINA
+if (localStorage.getItem('token') == null) {
+    window.location.href="login.html"
+}
+function sair() {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userLogado')
+    window.location.href="login.html"
+}
 
-// MODAL CADASTRO //
+// FUNÇÃO ADMINISTRADOR
 
-let cadastrarNovoModal = document.querySelector('#add-cadastrar')
-let novoCaseContainer = document.querySelector('#novoCaseContainer')
-let cadastrarCaseModel = document.querySelector('#cadastrarCaseModal')
-let closeModal = document.querySelector('#closeModal')
-let bgNovoCaseContainer = document.querySelector('#bgNovoCaseContainer')
-let avisoModal = document.querySelector('#avisoModal')
-let btnCadastrarModal = document.querySelector('#btnCadastrarModal')
-let btnLimparModal = document.querySelector('#btnLimparModal')
-let btnCancelarModal = document.querySelector('#btnCancelarModal')
-let continuarCadastrando = document.querySelector('#continuarCadastrando')
-let dividir = document.querySelector('.dividir')
+if (userLogado.user == 'admin') {
+    cadastrarNovoModal.setAttribute('style', 'display: in-line')
+    avisoAdm.setAttribute('style', 'display: none')
+    avisoAdm.innerHTML = ''
+} else {
+    cadastrarNovoModal.setAttribute('style', 'display: none')
+    avisoAdm.setAttribute('style', 'display: block')
+    avisoAdm.innerHTML = `<em>"Faça login como administrador para adicionar alunos"</em>`
+}
+
 
 // ABRIR E FECHAR MODAL DE CADASTRO
 cadastrarNovoModal.addEventListener('click', abrirModalCadastro)
@@ -56,12 +88,14 @@ btnCancelarModal.addEventListener('click', fecharModal)
 function fecharModal() {
     novoCaseContainer.style.display = 'none'
     bgNovoCaseContainer.style.display = 'none'
+    aviso.textContent= ''
 }
 
 // DADOS DO ALUNO
 btnCadastrarModal.addEventListener('click', function(e){
     e.preventDefault()
 })
+
 
 
 // VALIDAÇÃO
@@ -95,14 +129,14 @@ let labelEnderecoAluno = document.querySelector('#labelEnderecoAluno')
 let validEnderecoAluno = false
 
 cnome.addEventListener('keyup', ()=>{
-    if (cnome.value.length <= 3){
+    if (cnome.value.length <= 8){
         labelNomeAluno.setAttribute('style', 'color: red')
-        labelNomeAluno.innerHTML = 'Nome: *min. 4 caracteres'
+        labelNomeAluno.innerHTML = 'Nome: *nome completo'
         cnome.setAttribute('style', 'border-color: red')
         validNomeAluno = false
     } else {
         labelNomeAluno.setAttribute('style', 'color: #3a3a3a')
-        labelNomeAluno.innerHTML = 'Nome'
+        labelNomeAluno.innerHTML = 'Nome:'
         cnome.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validNomeAluno = true
     }
@@ -115,7 +149,7 @@ cserie.addEventListener('keyup', ()=>{
         validSerieAluno = false
     } else {
         labelSerieAluno.setAttribute('style', 'color: #3a3a3a')
-        labelSerieAluno.innerHTML = 'Série'
+        labelSerieAluno.innerHTML = 'Série:'
         cserie.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validSerieAluno = true
     }
@@ -128,7 +162,7 @@ ccelular.addEventListener('keyup', ()=>{
         validCelularAluno = false
     } else {
         labelCelularAluno.setAttribute('style', 'color: #3a3a3a')
-        labelCelularAluno.innerHTML = 'Celular'
+        labelCelularAluno.innerHTML = 'Celular:'
         ccelular.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validCelularAluno = true
     }
@@ -141,7 +175,7 @@ ctelefone.addEventListener('keyup', ()=>{
         validTelefoneAluno = false
     } else {
         labelTelefoneAluno.setAttribute('style', 'color: #3a3a3a')
-        labelTelefoneAluno.innerHTML = 'Telefone'
+        labelTelefoneAluno.innerHTML = 'Telefone:'
         ctelefone.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validTelefoneAluno = true
     }
@@ -149,12 +183,12 @@ ctelefone.addEventListener('keyup', ()=>{
 cmae.addEventListener('keyup', ()=>{
     if (cmae.value.length <= 3){
         labelMaeAluno.setAttribute('style', 'color: red')
-        labelMaeAluno.innerHTML = 'Mãe: *'
+        labelMaeAluno.innerHTML = 'Nome da Mãe: *'
         cmae.setAttribute('style', 'border-color: red')
         validMaeAluno = false
     } else {
         labelMaeAluno.setAttribute('style', 'color: #3a3a3a')
-        labelMaeAluno.innerHTML = 'Mãe'
+        labelMaeAluno.innerHTML = 'Nome da Mãe:'
         cmae.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validMaeAluno = true
     }
@@ -162,12 +196,12 @@ cmae.addEventListener('keyup', ()=>{
 cpai.addEventListener('keyup', ()=>{
     if (cpai.value.length <= 3){
         labelPaiAluno.setAttribute('style', 'color: red')
-        labelPaiAluno.innerHTML = 'Pai: *'
+        labelPaiAluno.innerHTML = 'Nome do Pai: *'
         cpai.setAttribute('style', 'border-color: red')
         validPaiAluno = false
     } else {
         labelPaiAluno.setAttribute('style', 'color: #3a3a3a')
-        labelPaiAluno.innerHTML = 'Pai'
+        labelPaiAluno.innerHTML = 'Nome do Pai:'
         cpai.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validPaiAluno = true
     }
@@ -180,7 +214,7 @@ cendereco.addEventListener('keyup', ()=>{
         validEnderecoAluno = false
     } else {
         labelEnderecoAluno.setAttribute('style', 'color: #3a3a3a')
-        labelEnderecoAluno.innerHTML = 'Endereço'
+        labelEnderecoAluno.innerHTML = 'Endereço:'
         cendereco.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validEnderecoAluno = true
     }
@@ -190,9 +224,11 @@ cendereco.addEventListener('keyup', ()=>{
 // CADASTRO
 btnCadastrarModal.addEventListener('click', dadosNovoAluno)
 function dadosNovoAluno(){
-    if (validNomeAluno == false || validSerieAluno  == false || validCelularAluno  == false || validTelefoneAluno  == false || validMaeAluno  == false || validPaiAluno  == false || validEnderecoAluno == false) {
+
+    if (validNomeAluno == false && validSerieAluno  == false && validCelularAluno  == false && validTelefoneAluno  == false && validMaeAluno  == false && validPaiAluno  == false && validEnderecoAluno == false) {
         novoCaseContainer.style.display = 'block'
         bgNovoCaseContainer.style.display = 'block'
+        aviso.textContent= `Preencha todas informações corretamente!`
 
     } else if (continuarCadastrando.checked == false && validNomeAluno == true && validSerieAluno  == true && validCelularAluno  == true && validTelefoneAluno  == true && validMaeAluno  == true && validPaiAluno  == true && validEnderecoAluno == true) {
 
@@ -221,19 +257,18 @@ function dadosNovoAluno(){
             endereco : cEnderecoAluno.value
         }
     
-        cellNomeAluno.innerHTML = alunoDados.nome
-        cellSerieAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Série</em>: </span> <span class="resAluno">${alunoDados.serie}</span></div>`
-        cellCelularAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Celular</em>: </span> <span class="resAluno">${alunoDados.celular}</span></div>`
-        cellTelefoneAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Telefone</em>: </span><span class="resAluno">${alunoDados.telefone}</span></div>`
-        cellNomeMaeAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Mãe</em>:</span><span class="resAluno">${alunoDados.mae}</span></div>`
-        cellNomePaiAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Pai</em>: </span><span class="resAluno">${alunoDados.pai}</span></div>`
-        cellEnderecoAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Endereço</em>: </span><span class="resAluno">${alunoDados.endereco}</span></div>`
+        cellNomeAluno.innerHTML = `<div class="modifyResultName"><span class="resAluno">${alunoDados.nome}</span></div>`
+        cellSerieAluno.innerHTML = `Série:<br> <div class="modifyResult"><span class="resAluno">${alunoDados.serie}</span></div>`
+        cellCelularAluno.innerHTML = `Celular:<br><div class="modifyResult"><span class="resAluno">${alunoDados.celular}</span></div>`
+        cellTelefoneAluno.innerHTML = `Telefone:<br><div class="modifyResult"><span class="resAluno">${alunoDados.telefone}</span></div>`
+        cellNomeMaeAluno.innerHTML = `Nome da Mãe:<br><div class="modifyResult"><span class="resAluno">${alunoDados.mae}</span></div>`
+        cellNomePaiAluno.innerHTML = `Nome do Pai<br><div class="modifyResult"><span class="resAluno">${alunoDados.pai}</span></div>`
+        cellEnderecoAluno.innerHTML = `Endereço:<br><div class="modifyResult"><span class="resAluno">${alunoDados.endereco}</span></div>`
         cellHR.innerHTML = `<div style="height:1px;width:60vw;background-color:rgb(177, 177, 177);margin:10px 0;"></div>`
     
-        //cellNomeAluno.classList.add('nomeClass')
-        cellNomeAluno.style = 'font-weight:bold;font-size:20px;margin-bottom:5px;padding-left:3px;color:#535353;'
+        cellNomeAluno.style = 'font-weight:bold;font-size:20px;margin-bottom:5px;padding-left:0px;color:#000;'
     
-        cellHR.style = 'max-width:1100vw;opacity:.5;'
+        cellHR.style = 'max-width:1100vw;'
     
         let none = document.querySelector('.none')
         none.style.display = 'none'
@@ -246,12 +281,13 @@ function dadosNovoAluno(){
         document.querySelector('#cPaiAluno').value = ''
         document.querySelector('#cEnderecoAluno').value = ''  
 
+        aviso.textContent= ''
+
         novoCaseContainer.style.display = 'none'
         bgNovoCaseContainer.style.display = 'none'
+        salvarLocalStorage()
+    } else if (continuarCadastrando.checked == true && validNomeAluno == true && validSerieAluno  == true && validCelularAluno  == true && validTelefoneAluno  == true && validMaeAluno  == true && validPaiAluno  == true && validEnderecoAluno == true){
 
-    } else if (continuarCadastrando.checked == true || validNomeAluno == true || validSerieAluno  == true|| validCelularAluno  == true|| validTelefoneAluno  == true|| validMaeAluno  == true|| validPaiAluno  == true|| validEnderecoAluno == true){
-        novoCaseContainer.style.display = 'block'
-        bgNovoCaseContainer.style.display = 'block'
         let dadosAlunosCadastrados = document.querySelector('#dadosAlunosCadastrados')
         let qtdLinhasAlunosCadastrados = dadosAlunosCadastrados.rows.length
         let linhaAlunosCadastrados = dadosAlunosCadastrados.insertRow(qtdLinhasAlunosCadastrados)
@@ -277,17 +313,16 @@ function dadosNovoAluno(){
             endereco : cEnderecoAluno.value
         }
     
-        cellNomeAluno.innerHTML = alunoDados.nome
-        cellSerieAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Série</em>: </span> <span class="resAluno">${alunoDados.serie}</span></div>`
-        cellCelularAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Celular</em>: </span> <span class="resAluno">${alunoDados.celular}</span></div>`
-        cellTelefoneAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Telefone</em>: </span><span class="resAluno">${alunoDados.telefone}</span></div>`
-        cellNomeMaeAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Mãe</em>:</span><span class="resAluno">${alunoDados.mae}</span></div>`
-        cellNomePaiAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Pai</em>: </span><span class="resAluno">${alunoDados.pai}</span></div>`
-        cellEnderecoAluno.innerHTML = `<div class="modifyResult"><span class="resAlunoResult"><em>Endereço</em>: </span><span class="resAluno">${alunoDados.endereco}</span></div>`
+        cellNomeAluno.innerHTML = `<div class="modifyResult"><span class="resAluno">${alunoDados.nome}</span></div>`
+        cellSerieAluno.innerHTML = `Série:<br> <div class="modifyResult"><span class="resAluno">${alunoDados.serie}</span></div>`
+        cellCelularAluno.innerHTML = `Celular:<br><div class="modifyResult"<span class="resAluno">${alunoDados.celular}</span></div>`
+        cellTelefoneAluno.innerHTML = `Telefone:<br><div class="modifyResult"><span class="resAluno">${alunoDados.telefone}</span></div>`
+        cellNomeMaeAluno.innerHTML = `Nome da Mãe:<br><div class="modifyResult"><span class="resAluno">${alunoDados.mae}</span></div>`
+        cellNomePaiAluno.innerHTML = `Nome do Pai<br><div class="modifyResult"><span class="resAluno">${alunoDados.pai}</span></div>`
+        cellEnderecoAluno.innerHTML = `Endereço:<br><div class="modifyResult"><span class="resAluno">${alunoDados.endereco}</span></div>`
         cellHR.innerHTML = `<div style="height:1px;width:60vw;background-color:rgb(177, 177, 177);margin:10px 0;"></div>`
     
-        //cellNomeAluno.classList.add('nomeClass')
-        cellNomeAluno.style = 'font-weight:bold;font-size:20px;margin-bottom:5px;padding-left:3px;color:#535353;'
+        cellNomeAluno.style = 'font-weight:bold;font-size:20px;margin-bottom:5px;padding-left:0px;color:#000;'
     
         cellHR.style = 'max-width:1100vw;opacity:.5;'
     
@@ -302,8 +337,15 @@ function dadosNovoAluno(){
         document.querySelector('#cPaiAluno').value = ''
         document.querySelector('#cEnderecoAluno').value = '' 
 
+        aviso.textContent= ''
 
+        novoCaseContainer.style.display = 'block'
+        bgNovoCaseContainer.style.display = 'block'
+
+        cNomeAluno.focus()
+        salvarLocalStorage()
     } else {
         alert('erro')
     }
 }
+

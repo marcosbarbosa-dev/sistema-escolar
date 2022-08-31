@@ -122,3 +122,21 @@ p {
     cursor: pointer;
     color: rgb(41, 41, 41);
 }
+#msgError {
+    display: none;
+    padding: 10px 5px;
+    font-size: 13px;
+    text-align: center;
+    color: #ff0000;
+    border-radius: 4px;
+    background-color: #ffbbbb;
+}
+#msgSucess {
+    display: none;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    color: #00bb00;
+    border-radius: 4px;
+    background-color: #bbffbe;
+}

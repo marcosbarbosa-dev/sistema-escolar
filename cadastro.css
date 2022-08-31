@@ -101,13 +101,21 @@ button:hover {
     width: 90px;
 }
 a {
-    color: #fff;
-    text-decoration: none;
+    color: rgb(0, 0, 0);
 }
-.justify-around {
+hr {
+    opacity: .5;
+    width: 60%;
+    margin: 10% auto;
+}
+p {
+    margin: 0 15px;
+    font-size: 14px;
+    text-align: center;
+}
+.justify-center {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
 }
 .fa-eye {
     position: absolute;
@@ -115,4 +123,22 @@ a {
     right: 10px;
     cursor: pointer;
     color: rgb(41, 41, 41);
+}
+#msgError {
+    display: none;
+    padding: 10px 5px;
+    font-size: 13px;
+    text-align: center;
+    color: #ff0000;
+    border-radius: 4px;
+    background-color: #ffbbbb;
+}
+#msgSucess {
+    display: none;
+    padding: 5px;
+    font-size: 13px;
+    text-align: center;
+    color: #00bb00;
+    border-radius: 4px;
+    background-color: #bbffbe;
 }

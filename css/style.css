@@ -142,12 +142,25 @@ header li a:hover {
     color: #808080;
 }
 .resAluno {
-    color: #a3a3a3;
+    color: #000000;
 }
 .modifyResult {
-    padding: 3px 5px;
+    padding: 5px 2px;
     border-radius: 5px;
     border: 1px solid rgba(180, 180, 180, 0.521);
+    margin-bottom: 4px;
+}
+.modifyResultName {
+    padding: 5px 2px;
+    border-radius: 5px;
+    border-bottom: 1px solid rgba(180, 180, 180, 0.521);
+    margin-bottom: 4px;
+}
+.modifyResult {
+    padding: 5px 2px;
+    border-radius: 5px;
+    border: 1px solid rgba(180, 180, 180, 0.521);
+    margin-bottom: 4px;
 }
 .nomeClass {
     color: #ec0000;
@@ -184,8 +197,14 @@ header li a:hover {
     border-radius: 0px 10px 10px 10px;
     border: 1px solid rgb(177, 177, 177);
 }
-
+.aluno-info {
+    width: 100%;
+}
+#dadosAlunosCadastrados {
+    width: 100%;
+}
 #dadosAlunosCadastrados tr {
+    width: 80vw;
     display: flex;
     flex-direction: column;
     padding-left: 15px;
@@ -220,7 +239,11 @@ header li a:hover {
         padding-left: 0;
     }
 }
-
+@media (max-width:375px) {
+    #dadosAlunosCadastrados tr {
+        width: 75vw;
+    }
+}
 /* Botão cadastro */
 
 .btnCadastroContainer {
@@ -278,9 +301,6 @@ header li a:hover {
     font-size: 14px;
     margin: 0px 10px 0 0;
 }
-.form-group label::after {
-    content: ':';
-}
 .inputModal {
     border: 1px solid rgba(207, 207, 207, 0.774);
     border-radius: 7px;
@@ -319,6 +339,7 @@ input::-webkit-inner-spin-button {
     transition: .4s;
 }
 #buttonManterPagina {
+    margin-top: 5px;
     display: flex;
     align-items: center;
 }
@@ -331,5 +352,22 @@ input::-webkit-inner-spin-button {
 #continuarCadastrandoLabel {
     color: #808080;
     margin-left: 3px;
+    font-size: 13px;
+}
+#aviso {
+    color: rgba(255, 0, 0, 0.562);
+    font-size: 12px;
+    padding: 0px 0px 50px 10px;
+}
+#avisoAdm {
+    font-size: 12px;
+    color: #7a7a7a9d;
+}
+#logado {
+    display: inline;
+}
+#userName {
+    padding-left: 3px;
+    color: #353535a8;
     font-size: 13px;
 }

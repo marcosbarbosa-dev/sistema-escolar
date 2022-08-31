@@ -15,10 +15,13 @@
     <div class="container">
         <div class="card">
             <h1>Cadastrar</h1>
+
+            <div id="msgError"></div>
+            <div id="msgSucess"></div>
+
             <div class="label-float">
                 <input type="text" id="nome" placeholder="" required>
                 <label id="labelNome" for="nome">Nome</label>
-                <p>https://www.youtube.com/watch?v=THQujIyE7Tg 09:40</p>
             </div>
             <div class="label-float">
                 <input type="text" id="usuario" placeholder="" required>
@@ -34,10 +37,14 @@
                 <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
                 <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
             </div>
-            <div class="justify-around">
+            <div class="justify-center">
                 <button class="button-cadastro" onclick='cadastrar()'>Cadastrar</button>
-                <button class="button-cadastro"><a href="login.html">Login</a></button>
             </div>
+            <hr>
+            <div class="justify-center">
+                <p>Já tem uma conta?
+                    <a href="login.html">Fazer Login</a>
+                </p>
         </div>
     </div>
 <script src="cadastro.js"></script>

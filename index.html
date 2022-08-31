@@ -20,7 +20,7 @@
                 <img src="imagens/expandir.png" alt="expandir" id="expandir-perfil">
             </div>
             <ul id="itemPerfil">
-                <li><a href="#">Sair</a></li>
+                <li><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </div>
     </div>
@@ -42,7 +42,7 @@
             <h2 id="tituloCaseModal">Cadastrar Aluno<span class="closeModal" id="closeModal">&times;</span></h2>
             <hr id="hr-titulo">
             <div class="form-group">
-                <label id="labelNomeAluno" for="cNomeAluno">Nome</label>
+                <label id="labelNomeAluno" for="cNomeAluno">Nome:</label>
                 <input
                 type="text"
                 name="cNomeAluno"
@@ -54,7 +54,7 @@
                 >
             </div>
             <div class="form-group">
-                <label id="labelSerieAluno" for="cSerieAluno">Série</label>
+                <label id="labelSerieAluno" for="cSerieAluno">Série:</label>
                 <input
                 type="text"
                 name="cSerieAluno"
@@ -66,7 +66,7 @@
                 >
             </div>
             <div class="form-group">
-                <label id="labelCelularAluno" for="cCelularAluno">Celular</label>
+                <label id="labelCelularAluno" for="cCelularAluno">Celular:</label>
                 <input
                 type="text"
                 name="cCelularAluno"
@@ -78,7 +78,7 @@
                 >
             </div>
             <div class="form-group">
-                <label id="labelTelefoneAluno" for="cTelefoneAluno">Telefone</label>
+                <label id="labelTelefoneAluno" for="cTelefoneAluno">Telefone:</label>
                 <input
                 type="text"
                 name="cTelefoneAluno"
@@ -90,7 +90,7 @@
                 >
             </div>
             <div class="form-group">
-                <label id="labelMaeAluno" for="cMaeAluno">Nome da Mãe</label>
+                <label id="labelMaeAluno" for="cMaeAluno">Nome da Mãe:</label>
                 <input
                 type="text"
                 name="cMaeAluno"
@@ -102,7 +102,7 @@
                 >
             </div>
             <div class="form-group">
-                <label id="labelPaiAluno" for="cPaiAluno">Nome do Pai</label>
+                <label id="labelPaiAluno" for="cPaiAluno">Nome do Pai:</label>
                 <input
                 type="text"
                 name="cPaiAluno"
@@ -114,7 +114,7 @@
                 >
             </div>
             <div class="form-group">
-                <label id="labelEnderecoAluno" for="cEnderecoAluno">Endereço</label>
+                <label id="labelEnderecoAluno" for="cEnderecoAluno">Endereço:</label>
                 <input
                 type="text"
                 name="cEnderecoAluno"
@@ -125,10 +125,13 @@
                 required
                 >
             </div>
-                <div id="buttonManterPagina">
-                    <input type="radio" name="continuarCadastrado" id="continuarCadastrando">
-                    <label for="continuarCadastrando" id="continuarCadastrandoLabel"><em>Continuar na página</em></label>
-                </div>
+            <div class="aviso">
+                <span id="aviso"></span>
+            </div>
+            <div id="buttonManterPagina">
+                <input type="radio" name="continuarCadastrado" id="continuarCadastrando">
+                <label for="continuarCadastrando" id="continuarCadastrandoLabel"><em>Continuar na página</em></label>
+            </div>
             <div id="botaoCadastroModal">
                 <button
                     id="btnCadastrarModal"
@@ -167,9 +170,9 @@
     <h2 id="titulo-alunos" class="titulos">ALUNOS <span id="add-cadastrar">add+</span></h2>
     </div>
     <div class="container">
-
         <div class="container-flex" id="container-alunos">
-            <h2 style="margin-bottom: 20px; color: #4b4b4b;">Painel Administrativo</h2>
+            <h2 style="margin-bottom: 20px; color: #4b4b4b;" id="logado">Painel Administrativo</h2>
+            <div id="userName"></div>
             <div class="aluno-info">
                 <table id="dadosAlunosCadastrados">
                     <thead>
@@ -186,6 +189,7 @@
                 </table>
             </div>
         </div>
+        <span id="avisoAdm"></span>
     </div>
 
 </main>

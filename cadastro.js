@@ -1,7 +1,7 @@
 let btnSenha = document.querySelector('#verSenha')
 let btnConfirmSenha = document.querySelector('#verConfirmSenha')
 
-let  = document.querySelector('#nome')
+let nome = document.querySelector('#nome')
 let labelNome = document.querySelector('#labelNome')
 let validNome = false
 
@@ -17,6 +17,9 @@ let confirmSenha = document.querySelector('#confirmSenha')
 let labelConfirmSenha = document.querySelector('#labelConfirmSenha')
 let validConfirmSenha = false
 
+let msgError = document.querySelector('#msgError')
+let msgSucess = document.querySelector('#msgSucess')
+
 nome.addEventListener('keyup', ()=>{
     if (nome.value.length <= 2){
         labelNome.setAttribute('style', 'color: red')
@@ -25,7 +28,7 @@ nome.addEventListener('keyup', ()=>{
         validNome = false
     } else {
         labelNome.setAttribute('style', 'color: #3a3a3a')
-        labelNome.innerHTML = 'Usuário'
+        labelNome.innerHTML = 'Nome'
         nome.setAttribute('style', 'border-color:rgba(212, 212, 212, 0.719)')
         validNome = true
     }
@@ -75,10 +78,34 @@ confirmSenha.addEventListener('keyup', ()=>{
 
 // FUNÇÃO CADASTRAR
 function cadastrar() {
-    if(validNome || validUsuario || validSenha || validConfirmSenha) {
-        alert('deucerto')
+    if(validNome && validUsuario && validSenha && validConfirmSenha) {
+
+        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+
+        listaUser.push(
+            {
+                nomeCad : nome.value,
+                userCad : usuario.value,
+                senhaCad : senha.value
+            }
+        )
+        localStorage.setItem('listaUser', JSON.stringify(listaUser))
+
+        msgSucess.setAttribute ('style', 'display: block')
+        msgSucess.innerHTML = 'Cadastrando usuário...'
+        msgError.setAttribute ('style', 'display: none')
+        msgError.innerHTML = ''
+
+        setTimeout(()=> {
+            window.location.href="login.html"
+        }, 3000)
+
+
     } else {
-        alert('vazio')
+        msgError.setAttribute ('style', 'display: block')
+        msgError.innerHTML = 'Preencha todos os campos corretamente!'
+        msgSucess.setAttribute ('style', 'display: none')
+        msgSucess.innerHTML = ''
     }
 } 
 
