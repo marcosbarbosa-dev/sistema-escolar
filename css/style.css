@@ -197,27 +197,6 @@ header li a:hover {
     border-radius: 0px 10px 10px 10px;
     border: 1px solid rgb(177, 177, 177);
 }
-#dadosAlunosCadastrados {
-    width: 100%;
-}
-#dadosAlunosCadastrados tr {
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    padding-left: 15px;
-    margin-bottom: 20px;
-}
-#dadosAlunosCadastrados td {
-    color: #505050;
-    width: 100%;
-    margin: 2px;
-    margin-bottom: 0;
-    border-radius: 5px;
-}
-.dividir {
-    display: block;
-    width: 100%;
-}
 #continuarCadastrando {
     outline: 0;
 }
@@ -284,7 +263,7 @@ header li a:hover {
 #closeModal {
     color: #cecece;
 }
-#hr-titulo {
+#hrTitle {
     width: 180px;
     margin-bottom: 20px;
     opacity: .5;
@@ -357,12 +336,15 @@ input::-webkit-inner-spin-button {
     padding: 0px 0px 50px 10px;
 }
 #avisoAdm {
+    margin: 20px 0 5px 0;
     font-size: 12px;
-    color: #ff0000da;
+    color: #35353570;
 }
 #painelTitle{
     display: inline;
+    color: #4b4b4b;
 }
+
 #userName {
     padding-left: 3px;
     color: #353535a8;
@@ -374,36 +356,35 @@ input::-webkit-inner-spin-button {
     text-align: center;
     color: #505050;
 }
-#infPageHr {
+.hrMargin {
     margin: 20px auto;
     max-width: 100%;
     opacity: .5;
 }
-#iconExpandir {
-    color: #000000;
+@media (max-width:988px){
+    #userName {
+        margin-bottom: 30px; 
+    }
+    #infPageHr {
+        margin: 5px auto;
+    }
 }
-.iconsInfo {
-    margin-left: 5px;
-    width: 10px;
-}
-#tituloTd  {
+.tituloName {
+    color: #3f3f3f;
     font-size: 20px;
     font-weight: bold;
 }
-.tdInf {
-    width: 100%;
+.pInf {
     margin: 3px 0;
-    padding: 5px;
-    border-radius: 3px;
-    border: 1px solid rgba(138, 138, 138, 0.514);
+
 }
-#userViewNamesId {
-    margin-bottom: 25px;
-}
-#userViewNamesId td {
-    font-size: 20px;
+.exerc {
+    color: #3f3f3f;
     font-weight: bold;
-    color: #505050;
-    padding: 5px 0;
-    border-radius: 5px;
+    margin: 0;
+}
+@media (max-width:430px) {
+    .tituloName {
+        font-size: 17px;
+    }
 }

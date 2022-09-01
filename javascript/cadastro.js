@@ -20,6 +20,7 @@ let validConfirmSenha = false
 let msgError = document.querySelector('#msgError')
 let msgSucess = document.querySelector('#msgSucess')
 
+
 nome.addEventListener('keyup', ()=>{
     if (nome.value.length <= 2){
         labelNome.setAttribute('style', 'color: red')
@@ -99,8 +100,7 @@ function cadastrar() {
         setTimeout(()=> {
             window.location.href="login.html"
         }, 3000)
-
-
+        
     } else {
         msgError.setAttribute ('style', 'display: block')
         msgError.innerHTML = 'Preencha todos os campos corretamente!'

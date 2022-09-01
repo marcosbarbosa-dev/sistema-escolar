@@ -41,8 +41,9 @@ if (userLogado.user == 'admin') {
     painelTitle.textContent = 'Escola Boulevard'
     tituloPage.textContent = 'Painel de Consultas'
     avisoAdm.innerHTML = `<em>"Faça login como administrador para acesso as informações"</em>`
-    userName.innerHTML = `<em>conectado: ${userLogado.nome}.</em></span>`
+    userName.innerHTML = `<em>conectado: ${userLogado.nome}. (usuário comum)</em></span>`
 }
+
 
 // ALUNO //
 const showPerfil = document.querySelector('.usuario')
