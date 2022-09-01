@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Sistema Escolar | Escola Fontes</title>
+    <title>Sistema Escolar | Escola Boulevard</title>
     
 </head>
 <body>
 <header>
     <div class="display-header">
-        <h1>Escola Fontes</h1>
+        <h1>Escola Boulevard</h1>
         <div id="showPerfil">
             <div class="usuario">
                 <img src="imagens/usuario.png" alt="Perfil" id="img-perfil">
@@ -25,18 +25,9 @@
         </div>
     </div>
 </header>
-<div id="navigator-responsive">
-    <div id="showMenu">
-        <span class="material-icons" id="iconMenu">menu</span>
-    </div>
-    <nav id="menu-responsivo">
-        <ul>
-            <li class="li-resp"><a href="index.html">Sistema Escolar</a></li>
-        </ul>
-    </nav>
-</div>
 <main>
 <!--Modal-->
+<div id="bgNovoCaseContainer"></div>
 <div id="novoCaseContainer">
     <form action="" id="cadastrarCaseModal">
         <h2 id="tituloCaseModal">Cadastrar Aluno<span class="closeModal" id="closeModal">&times;</span></h2>
@@ -73,7 +64,7 @@
             id="cCelularAluno"
             class="inputModal"
             autocomplete="off"
-            placeholder="61 90000-0000"
+            placeholder="Celular"
             disabled
             >
         </div>
@@ -85,7 +76,7 @@
             id="cTelefoneAluno"
             class="inputModal"
             autocomplete="off"
-            placeholder="61 3600-0000"
+            placeholder="Telefone Residencial"
             disabled
             >
         </div>
@@ -160,15 +151,13 @@
         </div>
     </form>
 </div>
-<div id="bgNovoCaseContainer"></div>
 <!--Conteúdo-->
-<h2 id="titulo-alunos" class="titulos">ALUNOS <span id="add-cadastrar">add+</span></h2>
-</div>
+<h2 id="tituloPage" class="titulos"> <span id="add-cadastrar">add+</span></h2>
 <div class="container">
-    <div class="container-flex" id="container-alunos">
-        <h2 style="margin-bottom: 20px; color: #4b4b4b;" id="logado">Painel Administrativo</h2>
+    <div class="boxFlex" id="boxInf">
+        <h2 style="margin-bottom: 20px; color: #4b4b4b;" id="painelTitle">Painel Administrativo</h2>
         <div id="userName"></div>
-        <div class="aluno-info">
+        <div>
             <h2 id="infPage">Quadro de Professores</h2>
             <hr id="infPageHr">
             <div id="userView">
@@ -223,7 +212,6 @@
     </div>
     <span id="avisoAdm"></span>
 </div>
-
 </main>
 <script src="javascript/script.js"></script>
 </body>

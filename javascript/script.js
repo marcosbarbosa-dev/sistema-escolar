@@ -11,24 +11,26 @@ let continuarCadastrando = document.querySelector('#continuarCadastrando')
 let dividir = document.querySelector('.dividir')
 let aviso = document.querySelector('#aviso')
 let userLogado = JSON.parse(localStorage.getItem('userLogado'))
-let logado = document.querySelector('#logado')
 let avisoAdm = document.querySelector('#avisoAdm')
 let userName = document.querySelector('#userName')
 let userView = document.querySelector('#userView')
 let admView = document.querySelector('#admView')
+let painelTitle = document.querySelector('#painelTitle')
+let tituloPage = document.querySelector('#tituloPage')
+
 // INICIALIZAÇÃO
 if (localStorage.getItem('token') == null) {
     window.location.href="login.html"
 }
 
 // FUNÇÃO ADMINISTRADOR
-
-
 if (userLogado.user == 'admin') {
     userView.style = 'display: none'
     admView.style = 'display: block'
     cadastrarNovoModal.setAttribute('style', 'display: in-line')
     avisoAdm.setAttribute('style', 'display: none')
+    painelTitle.setAttribute('style', 'display: block')
+    tituloPage.textContent = 'Painel de Gestão'
     avisoAdm.innerHTML = ''
     userName.innerHTML = `<em>conectado: ${userLogado.nome}. (administrador)</em></span>`
 } else {
@@ -36,24 +38,10 @@ if (userLogado.user == 'admin') {
     userView.style = 'display: block'
     cadastrarNovoModal.setAttribute('style', 'display: none')
     avisoAdm.setAttribute('style', 'display: block')
+    painelTitle.textContent = 'Escola Boulevard'
+    tituloPage.textContent = 'Painel de Consultas'
     avisoAdm.innerHTML = `<em>"Faça login como administrador para acesso as informações"</em>`
     userName.innerHTML = `<em>conectado: ${userLogado.nome}.</em></span>`
-}
-
-
-
-// MENU RESPONSIVO 
-const iconShowMenu = document.querySelector('#iconMenu')
-const showMenu = document.querySelector('#menu-responsivo')
-
-iconShowMenu.addEventListener('click', aparecerMenu)
-
-function aparecerMenu() {
-    if (showMenu.style.display == 'block') {
-        showMenu.style.display = 'none'
-    } else {
-        showMenu.style.display = 'block'
-    }
 }
 
 // ALUNO //
@@ -61,7 +49,6 @@ const showPerfil = document.querySelector('.usuario')
 const itemPerfil = document.querySelector('#itemPerfil')
 const imgExpandirPerfil = document.querySelector('#expandir-perfil')
 showPerfil.addEventListener('click', aparecerPerfil)
-
 
 function aparecerPerfil() {
     if (itemPerfil.style.display == 'flex') {
@@ -80,7 +67,6 @@ function sair() {
     window.location.href="login.html"
 }
 
-
 // ABRIR E FECHAR MODAL DE CADASTRO
 cadastrarNovoModal.addEventListener('click', abrirModalCadastro)
 function abrirModalCadastro() {
@@ -96,15 +82,14 @@ function fecharModal() {
     aviso.textContent= ''
 }
 
-// DADOS DO ALUNO
+
+// CADASTRAR ALUNO MODAL (FUNÇÃO INATIVA)
+
+// PREVENÇÃO DE ATUALIZAÇÃO DA PÁGINA
 btnCadastrarModal.addEventListener('click', function(e){
     e.preventDefault()
 })
-
-
-
 // VALIDAÇÃO
-
 let cnome = document.querySelector('#cNomeAluno')
 let labelNomeAluno = document.querySelector('#labelNomeAluno')
 let validNomeAluno = false
@@ -225,8 +210,6 @@ cendereco.addEventListener('keyup', ()=>{
     }
 })
 
-
-// CADASTRO
 btnCadastrarModal.addEventListener('click', dadosNovoAluno)
 function dadosNovoAluno(){
 
@@ -353,5 +336,3 @@ function dadosNovoAluno(){
         alert('erro')
     }
 }
-
-// INFORMAÇÕES PROFESSORES

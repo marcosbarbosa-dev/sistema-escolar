@@ -109,9 +109,6 @@ function cadastrar() {
     }
 } 
 
-
-
-
 // FUNÇÃO MOSTRAR SENHA
 btnSenha.addEventListener('click', ()=>{
     let inputSenha = document.querySelector('#senha')

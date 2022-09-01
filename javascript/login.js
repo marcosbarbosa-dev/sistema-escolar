@@ -33,7 +33,6 @@ btnEntrar.addEventListener('click', ()=> {
     }
 })
 
-
 function entrar() {
     let usuario = document.querySelector('#usuario')
     let userLabel = document.querySelector('#usuarioLabel')

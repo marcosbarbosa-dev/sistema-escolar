@@ -197,9 +197,6 @@ header li a:hover {
     border-radius: 0px 10px 10px 10px;
     border: 1px solid rgb(177, 177, 177);
 }
-.aluno-info {
-    width: 100%;
-}
 #dadosAlunosCadastrados {
     width: 100%;
 }
@@ -232,7 +229,7 @@ header li a:hover {
     .container {
         padding: 15px 15px;
     }
-    .container-flex {
+    .boxFlex {
         justify-content: center;
     }
     #dadosAlunosCadastrados tr {
@@ -363,7 +360,7 @@ input::-webkit-inner-spin-button {
     font-size: 12px;
     color: #ff0000da;
 }
-#logado {
+#painelTitle{
     display: inline;
 }
 #userName {
@@ -375,7 +372,6 @@ input::-webkit-inner-spin-button {
 /* Tabela Manual */
 #infPage {
     text-align: center;
-    margin-top: 10px;
     color: #505050;
 }
 #infPageHr {
