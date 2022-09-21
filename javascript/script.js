@@ -18,12 +18,10 @@ let admView = document.querySelector('#admView')
 let painelTitle = document.querySelector('#painelTitle')
 let tituloPage = document.querySelector('#tituloPage')
 
-// INICIALIZAÇÃO
 if (localStorage.getItem('token') == null) {
     window.location.href="login.html"
 }
 
-// FUNÇÃO ADMINISTRADOR
 if (userLogado.user == 'admin') {
     userView.style = 'display: none'
     admView.style = 'display: block'
@@ -44,8 +42,6 @@ if (userLogado.user == 'admin') {
     userName.innerHTML = `<em>conectado: ${userLogado.nome}. (usuário comum)</em></span>`
 }
 
-
-// ALUNO //
 const showPerfil = document.querySelector('.usuario')
 const itemPerfil = document.querySelector('#itemPerfil')
 const imgExpandirPerfil = document.querySelector('#expandir-perfil')

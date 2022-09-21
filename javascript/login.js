@@ -1,3 +1,5 @@
+alert('Crie um cadastro com user "admin" para conferir um conteúdo diferente de um usuário comum. E depois tente criar um cadastro com um usuário de um nome de sua preferência.')
+console.log('Crie um cadastro com user "admin" para conferir um conteúdo diferente de um usuário comum. E depois tente criar um cadastro com um usuário de um nome de sua preferência.')
 
 let btnVerSenhaLogin = document.querySelector('#verSenha')
 
