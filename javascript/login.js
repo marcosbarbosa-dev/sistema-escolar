@@ -1,5 +1,6 @@
 alert('Tente criar um usuário com nome "admin", e outro com nome de usuário de sua preferência para visualizar as diferenças de conteúdos.')
 console.log('Tente criar um usuário com nome "admin", e outro com nome de usuário de sua preferência para visualizar as diferenças de conteúdos.')
+console.log('Caso queira excluir os dados cadastrados, basta dar o comando "localStorage.Clear()" dentro do console, já que todos os dados são armazenados apenas no localStorage.')
 
 let btnVerSenhaLogin = document.querySelector('#verSenha')
 
